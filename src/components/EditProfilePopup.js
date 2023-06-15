@@ -9,14 +9,14 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser, onLoading }) {
   const currentUser = useContext(CurrentUserContext);
   
   useEffect(() => {
-    setValues({ username: currentUser.name, job: currentUser.about });
+    setValues({ username: currentUser.name, info: currentUser.about });
 }, [currentUser, isOpen]);
 
 
   function handleSubmit(evt) {
     evt.preventDefault();
 
-    onUpdateUser({ name: values.username, about: values.job })
+    onUpdateUser({ name: values.username, about: values.info })
   }
 
   return (
@@ -51,7 +51,7 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser, onLoading }) {
         minLength={2}
         maxLength={200}
         onChange={handleChange}
-        value={values.job ?? ''}
+        value={values.info ?? ''}
       />
      <span id="description-input-error" className="popup__error" />
     </PopupWithForm>

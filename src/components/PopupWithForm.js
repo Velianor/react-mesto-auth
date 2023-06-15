@@ -1,6 +1,6 @@
 import React from "react";
 
-function PopupWithForm({ isOpen, onClose,  title, children, buttonText, onSubmit }) {
+function PopupWithForm({ isOpen, onClose,  title, children, buttonText, onSubmit, name }) {
 
   function handleClickClose(evt) {
     if (evt.target.classList.contains('popup_opened')) {
@@ -21,7 +21,7 @@ function PopupWithForm({ isOpen, onClose,  title, children, buttonText, onSubmit
             aria-label="Зыкрыть форму"
           />
           <h2 className="popup__title">{title}</h2>
-          <form className="popup__form" name="nameForm" onSubmit={onSubmit}>
+          <form className="popup__form" name={`form_${name}`} onSubmit={onSubmit}>
             {children}
             <button
               type="submit"
